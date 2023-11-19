@@ -102,5 +102,5 @@ def process(url, protocol="https"):
 
 urls = []; c = 0
 for line in sys.stdin:
-    url = line.strip().replace("https://","").replace(".s3.amazonaws.com","").replace("s3.amazonaws.com/","")
+    url = line.strip().replace("https://","").replace(".s3.amazonaws.com","").replace("s3.amazonaws.com/","").replace(".amazonaws.com","")
     process(url)
