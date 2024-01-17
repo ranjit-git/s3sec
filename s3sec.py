@@ -102,5 +102,11 @@ def process(url, protocol="https"):
 
 urls = []; c = 0
 for line in sys.stdin:
-    url = line.strip().replace("https://","").replace(".s3.amazonaws.com","").replace("s3.amazonaws.com/","").replace(".amazonaws.com","")
+    unmodified_url=line
+    uu = line.strip().replace("https://","").replace("http://","").strip("/").split("/")
+    if len(uu)>1:
+        url=uu[1]
+    else:
+        url=uu[0].split(".s3")[0]
+    #print(url)
     process(url)
